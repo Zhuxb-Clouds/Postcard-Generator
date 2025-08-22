@@ -8,6 +8,7 @@ interface ToolbarProps {
   onDeleteSelected: () => void;
   onClearCanvas: () => void;
   onExport: () => void;
+  onShowTemplates: () => void;
 }
 
 export const Toolbar: React.FC<ToolbarProps> = ({
@@ -18,11 +19,15 @@ export const Toolbar: React.FC<ToolbarProps> = ({
   onDeleteSelected,
   onClearCanvas,
   onExport,
+  onShowTemplates,
 }) => {
   return (
     <div className="toolbar">
       <div className="toolbar-section">
         <h4>添加元素</h4>
+        <button className="toolbar-btn" onClick={onShowTemplates}>
+          🖼️ 模板
+        </button>
         <button className="toolbar-btn" onClick={onAddText}>
           📝 文本
         </button>

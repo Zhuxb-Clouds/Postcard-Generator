@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import * as fabric from 'fabric';
 import { Toolbar } from './Toolbar';
 import { PropertyPanel } from './PropertyPanel';
+import { TemplateGallery } from './TemplateGallery';
 
 export const PostcardEditor: React.FC = () => {
   const [canvas, setCanvas] = useState<fabric.Canvas | null>(null);
   const [selectedObject, setSelectedObject] = useState<fabric.Object | null>(null);
+  const [showTemplates, setShowTemplates] = useState(false);
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -145,6 +147,42 @@ export const PostcardEditor: React.FC = () => {
     }
   };
 
+  const saveDesign = () => {
+    if (canvas) {
+      const json = canvas.toJSON();
+      const jsonStr = JSON.stringify(json);
+      
+      // 保存到本地存储
+      localStorage.setItem('postcardDesign', jsonStr);
+      
+      alert('设计已保存');
+    }
+  };
+
+  const loadDesign = () => {
+    const savedDesign = localStorage.getItem('postcardDesign');
+    
+    if (savedDesign && canvas) {
+      try {
+        const json = JSON.parse(savedDesign);
+        canvas.clear();
+        canvas.loadFromJSON(json, () => {
+          canvas.renderAll();
+          alert('设计已加载');
+        });
+      } catch (err) {
+        alert('加载设计失败');
+        console.error(err);
+      }
+    } else {
+      alert('没有找到保存的设计');
+    }
+  };
+
+  const toggleTemplateGallery = () => {
+    setShowTemplates(!showTemplates);
+  };
+
   return (
     <div className="postcard-editor">
       <div className="editor-header">
@@ -161,6 +199,7 @@ export const PostcardEditor: React.FC = () => {
           onDeleteSelected={deleteSelected}
           onClearCanvas={clearCanvas}
           onExport={exportCanvas}
+          onShowTemplates={toggleTemplateGallery}
         />
         
         <div className="canvas-container">
@@ -172,6 +211,20 @@ export const PostcardEditor: React.FC = () => {
           selectedObject={selectedObject}
         />
       </div>
+
+      <div className="editor-footer">
+        <button className="save-btn" onClick={saveDesign}>保存设计</button>
+        <button className="load-btn" onClick={loadDesign}>加载设计</button>
+      </div>
+
+      {showTemplates && (
+        <div className="template-overlay">
+          <TemplateGallery
+            canvas={canvas}
+            onClose={toggleTemplateGallery}
+          />
+        </div>
+      )}
     </div>
   );
 };

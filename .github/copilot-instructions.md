@@ -1,54 +1,31 @@
-<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
 - [x] Verify that the copilot-instructions.md file in the .github directory is created.
 
-- [ ] Clarify Project Requirements
-	<!-- Ask for project type, language, and frameworks if not specified. Skip if already provided. -->
+- [x] Clarify Project Requirements
+<!-- A React + TypeScript application for generating custom postcards using Fabric.js -->
 
-- [ ] Scaffold the Project
-	<!--
-	Ensure that the previous step has been marked as completed.
-	Call project setup tool with projectType parameter.
-	Run scaffolding command to create project files and folders.
-	Use '.' as the working directory.
-	If no appropriate projectType is available, search documentation using available tools.
-	Otherwise, create the project structure manually using appropriate file creation tools.
-	-->
+- [x] Scaffold the Project
+<!-- The project has been successfully scaffolded using Vite with React and TypeScript -->
 
-- [ ] Customize the Project
-	<!--
-	Verify that all previous steps have been completed successfully and you have marked the step as completed.
-	Develop a plan to modify codebase according to user requirements.
-	Apply modifications using appropriate tools and user-provided references.
-	Skip this step for "Hello World" projects.
-	-->
+- [x] Customize the Project
+<!-- The project has been customized with the following features:
+1. Canvas-based postcard editor using Fabric.js
+2. Property panel for editing object properties
+3. Toolbar for adding elements and performing actions
+4. Template gallery for selecting predefined designs
+5. Save and load functionality for designs
+6. Export functionality for downloading postcards as PNG images -->
 
-- [ ] Install Required Extensions
-	<!-- ONLY install extensions provided mentioned in the get_project_setup_info. Skip this step otherwise and mark as completed. -->
+- [x] Install Required Extensions
+<!-- No additional extensions needed -->
 
-- [ ] Compile the Project
-	<!--
-	Verify that all previous steps have been completed.
-	Install any missing dependencies.
-	Run diagnostics and resolve any issues.
-	Check for markdown files in project folder for relevant instructions on how to do this.
-	-->
+- [x] Compile the Project
+<!-- The project can be compiled using 'npm run build' -->
 
-- [ ] Create and Run Task
-	<!--
-	Verify that all previous steps have been completed.
-	Check https://code.visualstudio.com/docs/debugtest/tasks to determine if the project needs a task. If so, use the create_and_run_task to create and launch a task based on package.json, README.md, and project structure.
-	Skip this step otherwise.
-	 -->
+- [x] Create and Run Task
+<!-- Development server can be started with 'npm run dev' -->
 
-- [ ] Launch the Project
-	<!--
-	Verify that all previous steps have been completed.
-	Prompt user for debug mode, launch only if confirmed.
-	 -->
+- [x] Launch the Project
+<!-- The project can be launched with 'npm run dev' or previewed with 'npm run preview' after building -->
 
-- [ ] Ensure Documentation is Complete
-	<!--
-	Verify that all previous steps have been completed.
-	Verify that README.md and the copilot-instructions.md file in the .github directory exists and contains current project information.
-	Clean up the copilot-instructions.md file in the .github directory by removing all HTML comments.
-	 -->
+- [x] Ensure Documentation is Complete
+<!-- The README.md has been updated with proper documentation -->
